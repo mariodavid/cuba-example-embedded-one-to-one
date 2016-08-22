@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editCaption"
+        class="com.company.embeddedonetooneexample.web.customer.CustomerEdit"
+        datasource="customerDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.embeddedonetooneexample.web.customer">
+    <dsContext>
+        <datasource id="customerDs"
+                    class="com.company.embeddedonetooneexample.entity.Customer"
+                    view="customer-view">
+            <datasource id="addressDs"
+                        property="address"/>
+            <datasource id="preferencesDs"
+                        property="preferences"/>
+        </datasource>
+    </dsContext>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="customerDs">
+            <column width="250px">
+                <field id="name"/>
+                <field id="favoriteCategory"
+                datasource="preferencesDs"/>
+                <field id="favoriteLanguage"
+                datasource="preferencesDs"/>
+                <field id="street"
+                       datasource="addressDs"/>
+                <field id="postcode"
+                       datasource="addressDs"/>
+                <field id="city"
+                       datasource="addressDs"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
